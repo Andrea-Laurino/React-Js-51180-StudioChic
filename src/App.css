@@ -1,0 +1,18 @@
+#root {
+  margin: 0;
+}
+
+.conteiner{
+  background: rgb(230,210,183);
+  background: linear-gradient(137deg, rgba(230,210,183,1) 35%, rgba(224,203,172,1) 100%);
+}
+
+body {
+  margin: 0;
+}
+
+.img-index{
+  width: 50%;
+  height: 100%;
+}
+
