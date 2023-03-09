@@ -3,6 +3,7 @@
     font-weight: 300;
     font-size: 23px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    margin-left: 20px;
 }
 

@@ -1,7 +1,8 @@
 .btn-login{
     display: flex;
-    align-items: end;
-    margin-bottom: 15px;
+    justify-content: end;
+    align-items: flex-end;
+    margin: 10px 10px 0 0;
 }  
 .login {
     color: rgba(0, 0, 0, 0.692);

@@ -1,6 +1,6 @@
 .container_nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #F8EDEB;
 }
 
@@ -22,6 +22,8 @@
 }
 
 .menu{
+    
+    font-size: 25px;
     display: flex;
     flex-direction: row;
 }
@@ -32,8 +34,8 @@ ul{
 }
 
 a{
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.692);
+    font-weight: 500;
+    color: #9d8189;
     text-decoration: none;
     display: flex;
     align-items: end;

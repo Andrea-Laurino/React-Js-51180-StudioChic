@@ -1,4 +1,4 @@
-import Button from "../Button"
+
 import CartWidget from "../CartWidget"
 import "./navbar.css"
 
@@ -18,7 +18,7 @@ function Navbar() {
                     <a href="/">Contact</a>
                 </ul>
                 <CartWidget />
-              <Button texto="Registrarse"/>
+             
             </nav>
         </header>
     )
