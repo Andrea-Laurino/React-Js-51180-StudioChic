@@ -1,15 +1,18 @@
 import './cartwidget.css'
+import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 
 const CartWidget = () => {
   return (
     <>
       <div className="shop">
-        <p>0</p>
-        <img  src="src/assets/Carrito.png" alt="Cart" width="40" height="40" href="/"/>
+
+        <ShoppingCartTwoToneIcon color='brown'  sx={{ fontSize: 40 }}/>
          
+         <p>0</p>
       </div>
       </>
   )
+
 }
 
 export default CartWidget
