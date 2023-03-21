@@ -27,29 +27,31 @@ function cardProducts() {
   console.log(productos)
   return( 
     <>
+    { productos.map((productos) => (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt= {productos.id}
-        height="140"
-        image= {productos.image}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-            {productos.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-           {productos.description} 
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <FavoriteTwoToneIcon color='grey' sx={{ fontSize: 30 }}/>
-        <Button >Comprar</Button>
-      </CardActions>
+        <CardMedia
+            component="img"
+            alt= {productos.id}
+            height="140"
+            image= {productos.image}
+        />
+        <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+                {productos.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+            {productos.description} 
+            </Typography>
+        </CardContent>
+        <CardActions>
+            <FavoriteTwoToneIcon color='grey' sx={{ fontSize: 30 }}/>
+            <Button >Comprar</Button>
+        </CardActions>
     </Card>
+    
+    ))}
     </>
-
-    )
+    );
 }
 
 
