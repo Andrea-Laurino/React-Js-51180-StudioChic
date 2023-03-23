@@ -1,7 +1,7 @@
 .container_nav {
     display: flex;
     justify-content: space-around;
-    background-color: #F8EDEB;
+    background-color: #0d1b2a;
 }
 
 .logo {
@@ -22,24 +22,25 @@
 }
 
 .menu{
-    
     font-size: 25px;
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
 }
 
-ul{
-    display: flex;
-    justify-content: space-between;
-}
-
-a{
+.items{
+    margin: 30px;
+    font-size: 25px;
     font-weight: 500;
-    color: #9d8189;
-    text-decoration: none;
-    display: flex;
-    align-items: end;
-    margin-right: 30px;
+    color: #c9ada7;
+    text-decoration: #0d1b2a;
+
 }
 
+p{
+    text-decoration: #0d1b2a;
+}
 
+.items:hover {
+    filter: drop-shadow(0 0 10px #FEC89A);
+ }
