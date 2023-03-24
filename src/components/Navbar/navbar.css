@@ -33,7 +33,7 @@
     font-size: 25px;
     font-weight: 500;
     color: #c9ada7;
-    text-decoration: #0d1b2a;
+    text-decoration:none;
 
 }
 
@@ -41,6 +41,10 @@ p{
     text-decoration: #0d1b2a;
 }
 
+a {
+
+    text-decoration: none ;
+}
 .items:hover {
     filter: drop-shadow(0 0 10px #FEC89A);
  }

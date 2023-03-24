@@ -1,9 +1,10 @@
 .shop{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: center;
     align-items: flex-end;
     color:#c9ada7;
+    margin: 20px 20px;
     
 }
 

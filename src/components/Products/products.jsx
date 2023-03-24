@@ -1,16 +1,18 @@
-//import Card from "../Card";
+import Tarjetas from "../Tarjetas/tarjeta";
+import { Container, Row, Col } from "react-bootstrap"
 
-const ProductList = ({ productos }) => {
+const Product = ({ productos }) => {
   return (
-    <div>
-        <p>HOLA MUNDO</p>
-    </div>
-    // <div>
-    //   {productos.map((producto) => (
-    //     <Card key={producto.id} producto={producto} />
-    //   ))}
-    // </div>
+    <Container className="">
+      <Row>
+        <Col className="card-container">
+          {productos.map((productos) => (
+            <Tarjetas key={productos.id} productos={ productos } />
+          ))}
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
-export default ProductList;
+export default Product; 

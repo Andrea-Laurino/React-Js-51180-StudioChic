@@ -1,28 +1,43 @@
 
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import CartWidget from "../CartWidget/cartwidget"
 import "./navbar.css"
 import Btn from '../Btn'
 
 function Navbar() {
+
+    const activeStyles = {
+        color: "#f8edeb",
+        filter: "drop-shadow(0 0 10px #FEC89A)"
+    }
+
     return (
         <header> 
             <nav className="container_nav">
                 <div className="logo">
-                    <img className="img-logo" src="src/assets/logoStudioChic.png" alt="StudioChic" href="/" />
+                <NavLink to="/home">
+                    <img className="img-logo" src="src/assets/logoStudioChic.png" alt="StudioChic"/>
+                </NavLink>
                 </div>
                 <div className="menu">
-                    <Link to="/home"><p className="items">Home</p></Link>
-                    <Link to="/products"><p className="items">Products</p></Link>
-                    <Link><p className="items">Shop</p></Link>
-                    <Link><p className="items">Contact</p></Link>
+                    <NavLink to="/home"
+                    style={({ isActive }) => (isActive ? activeStyles : undefined)}
+                    ><p className="items">Home</p></NavLink>
+                    <NavLink to="/products"
+                     style={({ isActive }) => (isActive ? activeStyles : undefined)}
+                     ><p className="items">Products</p></NavLink>
+                    <NavLink><p className="items">Shop</p></NavLink>
+                    <NavLink><p className="items">Contact</p></NavLink>
                 </div>
                 <div>
-                    <CartWidget />
+                    
+                    <NavLink to="/cart"
+                    style={({ isActive }) => (isActive ? activeStyles : undefined)}
+                    > <CartWidget /> </NavLink>
                     <Btn texto="Registrarse"/>
                 </div>
                
-            </nav>
+            </nav> 
             
         </header>
     )
