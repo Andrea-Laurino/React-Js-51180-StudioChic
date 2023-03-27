@@ -14,8 +14,10 @@ img{
     margin-top: 10px;
 }
 
-p{
-    margin-bottom: 25px;
+.number{
+    color:#c9ada7;
+    margin-top: 25px;
     font-weight: 500;
     font-size: 15px;
+    text-decoration: none;
 }

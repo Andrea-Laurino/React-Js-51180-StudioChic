@@ -3,6 +3,7 @@
     justify-content: end;
     align-items: flex-end;
     margin: 10px;
+    text-decoration: none;
 }  
 .login {
     color: rgba(0, 0, 0, 0.692);
@@ -11,12 +12,13 @@
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
-    background-color: #FEC89A;
+    text-decoration: none;
+    background-color: #c9ada7;
     cursor: pointer;
     transition: border-color 0.25s;
 }
 .login:hover {
-    border-color: #FFB5A7;
+    background-color: #FFB5A7;
 }
 .login:focus,
 .login:focus-visible {

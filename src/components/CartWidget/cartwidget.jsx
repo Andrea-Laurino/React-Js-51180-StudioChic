@@ -8,11 +8,11 @@ const CartWidget = () => {
 
         <ShoppingCartTwoToneIcon color='brown'  sx={{ fontSize: 40 }}/>
          
-         <p>0</p>
+         <p className='number'>0</p>
       </div>
       </>
   )
 
 }
 
-export default CartWidget
+export default CartWidget;

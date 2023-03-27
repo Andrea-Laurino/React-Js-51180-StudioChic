@@ -1,0 +1,24 @@
+.categorias-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+h3{
+    margin-top: 10px;
+}
+
+.category-btn{
+    margin: 5px;
+    color: rgba(0, 0, 0, 0.692);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.692);;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    background-color: #c9ada7;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}

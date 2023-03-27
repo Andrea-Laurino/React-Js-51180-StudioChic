@@ -1,6 +1,6 @@
 import { Button, Card, Spinner } from "react-bootstrap"
 import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, NavLink, useParams } from "react-router-dom";
 
 
 const tarjetDescription = () => {
@@ -39,6 +39,10 @@ const tarjetDescription = () => {
 
 
   return (
+    <>
+    <NavLink to={`/products`} >
+      ...Todos Los Productos
+    </NavLink>
     <Card>
         <Card.Img src={productos.image} />
         <Card.Body>
@@ -50,6 +54,7 @@ const tarjetDescription = () => {
             <Button variant="dark">Comprar</Button>
          </Card.Body>
   </Card>
+    </>
   )
 }
 
