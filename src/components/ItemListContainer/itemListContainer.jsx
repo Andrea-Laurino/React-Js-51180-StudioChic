@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Tarjetas from "../Tarjetas/tarjeta";
-import { NavLink } from "react-router-dom"
-import './itemListContainer.css'
+import Tarjetas from "../Tarjetas/tarjeta.jsx";
+import { NavLink } from "react-router-dom";
+import "./itemListContainer.css";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);

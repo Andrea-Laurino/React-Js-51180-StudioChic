@@ -7,7 +7,6 @@ import Navbar from './components/Navbar/navbar.jsx'
 import TarjetDescription from "./components/TarjetDescription/tarjetDescription";
 
 
-
 function App() {
   const [productos, setProductos] = useState([]);
 

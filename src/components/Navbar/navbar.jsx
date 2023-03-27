@@ -24,7 +24,7 @@ function Navbar() {
                     <NavLink to="/products" className="items"
                      style={({ isActive }) => (isActive ? activeStyles : undefined)}
                      ><p className="items">Products</p></NavLink>
-                    <NavLink to="/shop" qclassName="items"><p className="items">Shop</p></NavLink>
+                    <NavLink to="/shop" className="items"><p className="items">Shop</p></NavLink>
                     <NavLink to="/contact" className="items"><p className="items">Contact</p></NavLink>
                 </div>
                 <div>
@@ -43,4 +43,4 @@ function Navbar() {
 
 
 
-export default Navbar
+export default Navbar;
