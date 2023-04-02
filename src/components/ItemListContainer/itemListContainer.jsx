@@ -4,7 +4,10 @@ import Tarjetas from "../Tarjetas/tarjeta.jsx";
 import { NavLink } from "react-router-dom";
 import "./itemListContainer.css";
 
+
+
 const ItemListContainer = () => {
+  
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([])
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('')
@@ -32,6 +35,8 @@ const ItemListContainer = () => {
         setProductosFiltrados(productosFiltrados);
       }, [categoriaSeleccionada, productos]);
       
+   
+
     return (
     <> 
     <div className="categorias-btn">
@@ -45,7 +50,7 @@ const ItemListContainer = () => {
       ))}
     </div>
     </div>
-    
+   
       <Container>
         <Row>
           <Col className="card-container">

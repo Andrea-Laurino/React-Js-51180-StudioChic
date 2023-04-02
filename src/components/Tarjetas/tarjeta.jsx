@@ -1,8 +1,15 @@
 import { Card } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import "./tarjetas.css"
+import React from "react";
+
+
+
 
 const tarjetas = ({ producto }) => {
+
+  
+
   return (
     <Link to={`${producto.id}`}>
       <Card>

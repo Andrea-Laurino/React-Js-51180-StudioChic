@@ -18,20 +18,14 @@ function Navbar() {
                 <NavLink to="/home"><img className="img-logo" src="src/assets/logoStudioChic.png" alt="StudioChic"/></NavLink>
                 </div>
                 <div className="menu">
-                    <NavLink to="/home" className="items"
-                    style={({ isActive }) => (isActive ? activeStyles : undefined)}
-                    ><p className="items">Home</p></NavLink>
-                    <NavLink to="/products" className="items"
-                     style={({ isActive }) => (isActive ? activeStyles : undefined)}
-                     ><p className="items">Products</p></NavLink>
-                    <NavLink to="/shop" className="items"><p className="items">Shop</p></NavLink>
-                    <NavLink to="/contact" className="items"><p className="items">Contact</p></NavLink>
+                    <NavLink to="/home" className="items" style={({ isActive }) => (isActive ? activeStyles : undefined)}><p className="items">Home</p></NavLink>   
+                    <NavLink to="/products" className="items" style={({ isActive }) => (isActive ? activeStyles : undefined)}><p className="items">Products</p></NavLink>
+                    <NavLink to="/cart" className="items" style={({ isActive }) => (isActive ? activeStyles : undefined)}><p className="items">Shop</p></NavLink>
+                    <NavLink to="/contact" className="items" style={({ isActive }) => (isActive ? activeStyles : undefined)}><p className="items">Contact</p></NavLink>
                 </div>
                 <div>
-                    <NavLink to="/cart" style={({ isActive }) => (isActive ? activeStyles : undefined)}>
-                      <CartWidget /></NavLink>
-                      <NavLink to="/login" style={({ isActive }) => (isActive ? activeStyles : undefined)}>
-                      <Btn texto="Registrarse"/></NavLink>
+                    <NavLink to="/cart" style={({ isActive }) => (isActive ? activeStyles : undefined)}><CartWidget /></NavLink>
+                    <NavLink to="/login" style={({ isActive }) => (isActive ? activeStyles : undefined)}><Btn texto="Registrarse"/></NavLink>
                     
                 </div>
                

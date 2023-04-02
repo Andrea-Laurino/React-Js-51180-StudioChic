@@ -1,12 +1,20 @@
 import { Button, Card, Spinner } from "react-bootstrap"
 import { useEffect, useState } from "react";
-import { Navigate, NavLink, useParams } from "react-router-dom";
+import { Link, Navigate, NavLink, useParams } from "react-router-dom";
+import { useCartContext } from '../../contexts/CartContext.jsx';
+
+import React from "react";
+import ItemCount from "../ItemCount/itemCount.jsx";
 
 
 const tarjetDescription = () => {
+
   const [productos, setProductos] = useState({});
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+
+  const { addProduct } = useCartContext()
+  const [goToCart, setGoToCart] = useState(false)
 
   const getProductos = async () => {
     try {
@@ -37,12 +45,21 @@ const tarjetDescription = () => {
     )
   }
 
-
+  const onAdd = (quantity) => {
+    setGoToCart(true);
+    addProduct(productos, quantity);
+  }
   return (
     <>
     <NavLink to={`/products`} >
       ...Todos Los Productos
     </NavLink>
+    {
+      goToCart 
+      ? <Link to='/cart'> Terminar Compra</Link>
+      :<ItemCount initial ={1} stock={5} onAdd={onAdd} />
+    }
+
     <Card>
         <Card.Img src={productos.image} />
         <Card.Body>
@@ -51,9 +68,9 @@ const tarjetDescription = () => {
             <Card.Text> {productos.category}</Card.Text>
             <Card.Text> {productos.rating.rate}</Card.Text>
             <Card.Text> $ {productos.price}</Card.Text>
-            <Button variant="dark">Comprar</Button>
          </Card.Body>
-  </Card>
+      </Card>
+      
     </>
   )
 }

@@ -9,6 +9,8 @@ import Cart from "./components/Cart/cart"
 import Contact from "./components/Contact/contact"
 import Login from "./components/Loguin/login"
 
+import CartProvider from "./contexts/CartContext";
+
 function App() {
   const [productos, setProductos] = useState([]);
 
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <>
+    <CartProvider>
     <Navbar />
     <Routes>
         <Route path="/" element={<Navigate to="/Home"/>} />
@@ -41,13 +44,8 @@ function App() {
         <Route path="/cart" element={<Cart />}/>
         <Route path="/contact" element={<Contact />}/>
         <Route path="/login" element={<Login />}/>
-
     </Routes> 
-
-
-
-    
-         
+    </CartProvider>         
     </>
   )
 }
