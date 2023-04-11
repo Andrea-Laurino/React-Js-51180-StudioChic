@@ -11,16 +11,32 @@ import Login from "./components/Loguin/login"
 
 import CartProvider from "./contexts/CartContext";
 
+import { getDocs, collection } from "firebase/firestore";
+import db from '../db/firebase-config.js'
+
 function App() {
   const [productos, setProductos] = useState([]);
 
+  const itemRef = collection(db, "products")
+
+  const getItems = async () => {
+    const productsCollection= await getDocs(itemRef)
+    const items = productsCollection.docs.map((doc) => ({
+      ...doc.data(), 
+      id: doc.id
+    }));
+    setProductos(items)
+  }
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((data) => {
-        setProductos(data);
-      });
+    getItems()
   }, []);
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setProductos(data);
+  //     });
+  // }, []);
 
 
   return (
@@ -32,8 +48,8 @@ function App() {
         <Route path="/home" element={<Home/>} /> 
         <Route path="/products" element={<ItemListContainer productos={productos}/>} />
         <Route path="/products/:id" element= {<TarjetDescription productos={productos}/>} />
-        <Route path="/products/category/electronics" element={<ItemListContainer productos={productos} />}/>
-        <Route path="/products/category/electronics/:id"  element= {<TarjetDescription productos={productos}/>} />
+        <Route path="/products/category/eau de parfum" element={<ItemListContainer productos={productos} />}/>
+        <Route path="/products/category/eau de parfum/:id"  element= {<TarjetDescription productos={productos}/>} />
         <Route path="/products/category/jewelery" element={<ItemListContainer productos={productos} />}/>
         <Route path="/products/category/jewelery/:id"  element= {<TarjetDescription productos={productos}/>} />
         <Route path="/products/category/men's clothing" element={<ItemListContainer productos={productos} />}/>
@@ -46,6 +62,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
     </Routes> 
     </CartProvider>         
+  
     </>
   )
 }

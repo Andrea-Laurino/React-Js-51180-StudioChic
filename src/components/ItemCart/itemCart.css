@@ -1,11 +1,13 @@
+
 .itemCart{
     display: flex;
-    border-bottom: 1px solid gray;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 500px;
-    margin: 1rem auto;
+ 
 }
 
 .itemCart-img{
-    height: auto;
-    width: 150px ;
+    height: 350px;
+    width: 50px ;
 }

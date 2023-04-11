@@ -1,34 +1,39 @@
-import { Button, Card, Spinner } from "react-bootstrap"
+import { Card, Spinner } from "react-bootstrap"
 import { useEffect, useState } from "react";
 import { Link, Navigate, NavLink, useParams } from "react-router-dom";
 import { useCartContext } from '../../contexts/CartContext.jsx';
-
 import React from "react";
 import ItemCount from "../ItemCount/itemCount.jsx";
+import { doc, getDoc } from "firebase/firestore";
+import db from '../../../db/firebase-config.js'
+
+
 
 
 const tarjetDescription = () => {
 
   const [productos, setProductos] = useState({});
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
 
   const { addProduct } = useCartContext()
   const [goToCart, setGoToCart] = useState(false)
 
-  const getProductos = async () => {
-    try {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProductos(data);
+
+  const { id } = useParams();
+  const queryDoc = doc(db, "products", id);
+
+  const getProductId = async () => {
+      try {  
+      const productId = await getDoc(queryDoc)
+      setProductos({id: productId.id, ...productId.data()})
       setLoading(false);
     } catch (error) {
       setProductos(null);
-    }
-  };
+    };
+  }
 
   useEffect(() => {
-    getProductos();
+    getProductId()
   }, []);
 
   if (!productos) {
@@ -39,7 +44,7 @@ const tarjetDescription = () => {
     return (
         <div>
             <Spinner animation="grow" size="sm" />
-            <Spinner animation="grow" />;
+            <Spinner animation="grow" />
             <Spinner animation="grow" size="sm" />
         </div>
     )
@@ -66,7 +71,6 @@ const tarjetDescription = () => {
             <Card.Title>{productos.title}</Card.Title>
             <Card.Text> {productos.description}</Card.Text>
             <Card.Text> {productos.category}</Card.Text>
-            <Card.Text> {productos.rating.rate}</Card.Text>
             <Card.Text> $ {productos.price}</Card.Text>
          </Card.Body>
       </Card>

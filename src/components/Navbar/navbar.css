@@ -1,7 +1,7 @@
 .container_nav {
     display: flex;
     justify-content: space-around;
-    background-color: #0d1b2a;
+    background-color: rgb(13, 27, 42);
 }
 
 .logo {
@@ -32,7 +32,7 @@
     margin: 30px;
     font-size: 25px;
     font-weight: 500;
-    color: #c9ada7;
+    color: rgb(201, 173, 167);
     text-decoration:none;
 
 }

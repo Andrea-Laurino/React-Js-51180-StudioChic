@@ -4,6 +4,8 @@ import Tarjetas from "../Tarjetas/tarjeta.jsx";
 import { NavLink } from "react-router-dom";
 import "./itemListContainer.css";
 
+import { getDocs, collection } from "firebase/firestore";
+import db from '../../../db/firebase-config.js'
 
 
 const ItemListContainer = () => {
@@ -13,32 +15,43 @@ const ItemListContainer = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('')
   const [productosFiltrados, setProductosFiltrados] = useState(productos);
 
-    useEffect(() => {
-      fetch('https://fakestoreapi.com/products/')
-            .then(res => res.json())
-            .then(data => {
-              setProductos(data);
-              const categoriasUnicas = [
-                ...new Set(data.map((producto) => producto.category)),
-              ];
-              setCategorias(categoriasUnicas);
-            });     
-      }, []);
+  const itemRef = collection(db, "products")
 
-      const handleCategoriaClick = (categoria) => {
-        setCategoriaSeleccionada(categoria);
-        
+  const getItems = async () => {
+    const productsCollection= await getDocs(itemRef)
+    const items = productsCollection.docs.map((doc) => ({
+      ...doc.data(), 
+      id: doc.id
+    }));
+    setProductos(items)
+    const categoriasUnicas = [
+      ...new Set(items.map((producto) => producto.category)),
+    ];
+    setCategorias(categoriasUnicas);
+  }
+  useEffect(() => {
+    getItems()
+  }, []);
+
+  const handleCategoriaClick = (categoria) => {
+    setCategoriaSeleccionada(categoria);
       };
-      useEffect(() => {
-        const productosFiltrados = categoriaSeleccionada ? productos.filter(
-          (producto) => producto.category === categoriaSeleccionada) : productos;
-        setProductosFiltrados(productosFiltrados);
-      }, [categoriaSeleccionada, productos]);
+
+  useEffect(() => {
+    const productosFiltrados = categoriaSeleccionada ? productos.filter(
+        (producto) => producto.category === categoriaSeleccionada) : productos;
+      setProductosFiltrados(productosFiltrados);
+  }, [categoriaSeleccionada, productos]);
       
    
 
     return (
     <> 
+    {/* <div>  
+      <NavLink to={`/products`} >
+          Todos Los Productos
+      </NavLink>
+    </div> */}
     <div className="categorias-btn">
     <div><h3>Nuestras Categorias: </h3></div>
     <div>

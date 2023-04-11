@@ -6,8 +6,8 @@ import { useCartContext } from '../../contexts/CartContext'
 const itemCart = ({ producto }) => {
     const { removeProduct } = useCartContext();
   return (
-    
-    <Card className='itemCart'>
+
+      <Card className='itemCart'>
         <Card.Img className='itemCart-img' src={producto.image} alt={producto.nombre}/>
           <Card.Body>
             <Card.Title>{producto.title}</Card.Title>
@@ -17,7 +17,7 @@ const itemCart = ({ producto }) => {
             <Button variant="dark" onClick={() => removeProduct(producto.id)}>Eliminar</Button>
           </Card.Body>
       </Card>
-       
+  
   )
 }
 
