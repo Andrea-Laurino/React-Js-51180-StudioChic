@@ -1,3 +1,5 @@
+import React from 'react';
+import  'bootstrap/dist/css/bootstrap.min.css' ;
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router";
@@ -6,8 +8,8 @@ import ItemListContainer from './components/ItemListContainer/itemListContainer.
 import Navbar from './components/Navbar/navbar.jsx'
 import TarjetDescription from "./components/TarjetDescription/tarjetDescription";
 import Cart from "./components/Cart/cart"
-import Contact from "./components/Contact/contact"
-import Login from "./components/Loguin/login"
+import Login from "./components/Login/login"
+import Footer from "./components/Footer/footer"
 
 import CartProvider from "./contexts/CartContext";
 
@@ -30,13 +32,7 @@ function App() {
   useEffect(() => {
     getItems()
   }, []);
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setProductos(data);
-  //     });
-  // }, []);
+
 
 
   return (
@@ -58,11 +54,10 @@ function App() {
         <Route path="/products/category/women's clothing/:id"  element= {<TarjetDescription productos={productos}/>} />
         <Route path="/404" element={<img className="img-error" src="src/assets/404.error.jpg" />}/>
         <Route path="/cart" element={<Cart />}/>
-        <Route path="/contact" element={<Contact />}/>
         <Route path="/login" element={<Login />}/>
     </Routes> 
     </CartProvider>         
-  
+    <Footer/>
     </>
   )
 }

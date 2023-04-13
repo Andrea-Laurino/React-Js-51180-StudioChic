@@ -5,6 +5,12 @@
     margin: 10px;
     text-decoration: none;
 }  
+a.active{
+    text-decoration: none;
+}
+a{
+   text-decoration: none;
+}
 .login {
     color: rgba(0, 0, 0, 0.692);
     border-radius: 8px;

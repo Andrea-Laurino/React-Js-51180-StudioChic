@@ -22,3 +22,9 @@ h3{
     cursor: pointer;
     transition: border-color 0.25s;
 }
+
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,13 @@
+.tarjeta{
+    display: flex;
+    justify-content: center;
+}
+
+.product{
+    width: 500px;
+}
+
+.contador{
+    margin: 20px;
+    padding:20px;
+}

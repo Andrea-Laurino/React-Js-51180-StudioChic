@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import Tarjetas from "../Tarjetas/tarjeta.jsx";
 import { NavLink } from "react-router-dom";
 import "./itemListContainer.css";
@@ -14,6 +14,7 @@ const ItemListContainer = () => {
   const [categorias, setCategorias] = useState([])
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('')
   const [productosFiltrados, setProductosFiltrados] = useState(productos);
+  const [loading, setLoading] = useState(true);
 
   const itemRef = collection(db, "products")
 
@@ -24,6 +25,7 @@ const ItemListContainer = () => {
       id: doc.id
     }));
     setProductos(items)
+    setLoading(false)
     const categoriasUnicas = [
       ...new Set(items.map((producto) => producto.category)),
     ];
@@ -43,7 +45,15 @@ const ItemListContainer = () => {
       setProductosFiltrados(productosFiltrados);
   }, [categoriaSeleccionada, productos]);
       
-   
+  if (loading) {
+    return (
+        <div className="spinner">
+            <Spinner animation="grow" size="sm" />
+            <Spinner animation="grow" />
+            <Spinner animation="grow" size="sm" />
+        </div>
+    )
+  }
 
     return (
     <> 

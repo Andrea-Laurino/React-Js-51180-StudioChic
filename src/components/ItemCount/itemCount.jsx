@@ -15,6 +15,7 @@ const itemCount = ({ initial, stock, onAdd }) => {
       setCount(parseInt(initial));
     }, [initial])
     
+     
 
   return (
 

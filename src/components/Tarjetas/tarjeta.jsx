@@ -11,9 +11,9 @@ const tarjetas = ({ producto }) => {
   
 
   return (
-    <Link to={`${producto.id}`}>
-      <Card>
-        <Card.Img src={producto.image} alt={producto.nombre}/>
+    <Link to={`${producto.id}`} className="link">
+      <Card className=" text-center">
+        <Card.Img  src={producto.image} alt={producto.nombre}/>
           <Card.Body>
             <Card.Title>{producto.title}</Card.Title>
             <Card.Text> $ {producto.price}</Card.Text>

@@ -5,6 +5,7 @@ import { useCartContext } from '../../contexts/CartContext'
 
 const itemCart = ({ producto }) => {
     const { removeProduct } = useCartContext();
+    
   return (
 
       <Card className='itemCart'>

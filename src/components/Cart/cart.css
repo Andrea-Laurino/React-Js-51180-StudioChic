@@ -1,6 +1,14 @@
+
 .cart-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+   
+}
+
+.totalPrice{
+    display: flex;
+    justify-content: center;
+    color: #1b263b;
 }

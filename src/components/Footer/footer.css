@@ -1,0 +1,24 @@
+.footer-bg{
+    background-color:  #0d1b2a;
+    color: #c9ada7;
+}
+
+
+.link{
+    text-decoration: none;
+    color: #c9ada7;
+}
+
+.footer-img{
+    margin-bottom: 20px;
+    width: 180px;
+    height: 100px;
+    border-radius: 30px;    
+    will-change: filter;
+    transition: filter 300ms;
+    cursor: pointer;
+}
+
+.footer-img:hover {
+   filter: drop-shadow(0 0 2em #FEC89A);
+}
