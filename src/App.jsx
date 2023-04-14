@@ -6,7 +6,7 @@ import { Navigate, Route, Routes } from "react-router";
 import Home from "./components/Home/home";
 import ItemListContainer from './components/ItemListContainer/itemListContainer.jsx'
 import Navbar from './components/Navbar/navbar.jsx'
-import TarjetDescription from "./components/TarjetDescription/tarjetDescription";
+import ItemDetailContainer from "./components/ItemDetailContainer/itemDetailContainer";
 import Cart from "./components/Cart/cart"
 import Login from "./components/Login/login"
 import Footer from "./components/Footer/footer"
@@ -18,7 +18,9 @@ import db from '../db/firebase-config.js'
 
 function App() {
   const [productos, setProductos] = useState([]);
+  const [usuario, setUsuario] = useState(null);
 
+  
   const itemRef = collection(db, "products")
 
   const getItems = async () => {
@@ -36,25 +38,24 @@ function App() {
 
 
   return (
-    <>
+    <> 
     <CartProvider>
     <Navbar />
+    {usuario ? <Home/> : <Login setUsuario={setUsuario}/>} 
     <Routes>
-        <Route path="/" element={<Navigate to="/Home"/>} />
-        <Route path="/home" element={<Home/>} /> 
+        <Route path="/login" element={<Login/>}/>       
         <Route path="/products" element={<ItemListContainer productos={productos}/>} />
-        <Route path="/products/:id" element= {<TarjetDescription productos={productos}/>} />
+        <Route path="/products/:id" element= {<ItemDetailContainer productos={productos}/>} />
         <Route path="/products/category/eau de parfum" element={<ItemListContainer productos={productos} />}/>
-        <Route path="/products/category/eau de parfum/:id"  element= {<TarjetDescription productos={productos}/>} />
         <Route path="/products/category/jewelery" element={<ItemListContainer productos={productos} />}/>
-        <Route path="/products/category/jewelery/:id"  element= {<TarjetDescription productos={productos}/>} />
         <Route path="/products/category/men's clothing" element={<ItemListContainer productos={productos} />}/>
-        <Route path="/products/category/men's clothing/:id"  element= {<TarjetDescription productos={productos}/>} />
         <Route path="/products/category/women's clothing" element={<ItemListContainer productos={productos} />}/>
-        <Route path="/products/category/women's clothing/:id"  element= {<TarjetDescription productos={productos}/>} />
+        <Route path="/products/category/men's clothing/:id"  element= {<ItemDetailContainer productos={productos}/>} />
+        <Route path="/products/category/eau de parfum/:id"  element= {<ItemDetailContainer productos={productos}/>} />
+        <Route path="/products/category/jewelery/:id"  element= {<ItemDetailContainer productos={productos}/>} />
+        <Route path="/products/category/women's clothing/:id"  element= {<ItemDetailContainer productos={productos}/>} />
         <Route path="/404" element={<img className="img-error" src="src/assets/404.error.jpg" />}/>
         <Route path="/cart" element={<Cart />}/>
-        <Route path="/login" element={<Login />}/>
     </Routes> 
     </CartProvider>         
     <Footer/>

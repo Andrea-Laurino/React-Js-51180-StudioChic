@@ -31,7 +31,11 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
       </section>
- 
+      {/* <section>
+        <div>
+          <img src="../assets/ecommerce.jpg" alt="" />
+        </div>
+      </section> */}
       </>
 
     );

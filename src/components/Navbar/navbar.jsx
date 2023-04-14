@@ -24,7 +24,7 @@ function Navbar() {
                 </div>
                 <div>
                     <NavLink to="/cart" style={({ isActive }) => (isActive ? activeStyles : undefined)}><CartWidget /></NavLink>
-                    <NavLink to="/login" style={({ isActive }) => (isActive ? activeStyles : undefined)}><Btn texto="Registrarse"/></NavLink>
+                    {/* <NavLink to="/login" style={({ isActive }) => (isActive ? activeStyles : undefined)}><Btn texto="Login"/></NavLink> */}
                     
                 </div>
                

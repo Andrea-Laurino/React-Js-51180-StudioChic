@@ -1,12 +1,12 @@
 import { Card } from "react-bootstrap"
 import { Link } from "react-router-dom";
-import "./tarjetas.css"
+import "./itemList.css"
 import React from "react";
 
 
 
 
-const tarjetas = ({ producto }) => {
+const itemList = ({ producto }) => {
 
   
 
@@ -23,4 +23,4 @@ const tarjetas = ({ producto }) => {
     )
 }
 
-export default tarjetas;
+export default itemList;

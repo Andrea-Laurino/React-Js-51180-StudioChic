@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
-import Tarjetas from "../Tarjetas/tarjeta.jsx";
+import ItemList from "../ItemList/itemList.jsx";
 import { NavLink } from "react-router-dom";
 import "./itemListContainer.css";
 
@@ -78,7 +78,7 @@ const ItemListContainer = () => {
         <Row>
           <Col className="card-container">
             {productosFiltrados.map((producto) => (
-              <Tarjetas key={producto.id} producto={ producto } />
+              <ItemList key={producto.id} producto={ producto } />
             ))}
           </Col>
         </Row>

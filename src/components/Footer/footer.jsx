@@ -4,6 +4,7 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import './footer.css'
+import { NavLink } from 'react-router-dom';
 
 export default function footer(){
 return(
@@ -12,7 +13,7 @@ return(
           <div className=" row p-3 ">
   
               <div className="col-xs-12 col-m-6 col-lg-3">
-              <img className="footer-img" src="src/assets/logoFOOTERStudioChic.png" alt="StudioChic"/>
+              <NavLink to="/home"><img className="footer-img" src="src/assets/logoFOOTERStudioChic.png" alt="StudioChic"/></NavLink>
                   <h5 className="text-lg mt-0 mb-2 text-center mt-3">
                      Redes Sociales
                   </h5>

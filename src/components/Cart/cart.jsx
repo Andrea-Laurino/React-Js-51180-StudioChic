@@ -5,7 +5,7 @@ import './cart.css'
 import Btn from '../Btn/button.jsx'
 import db from '../../../db/firebase-config.js'
 import { addDoc, collection } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
 

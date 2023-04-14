@@ -6,7 +6,7 @@ import Btn from '../Btn/button.jsx'
 import ItemCount from "../ItemCount/itemCount.jsx";
 import { doc, getDoc } from "firebase/firestore";
 import db from '../../../db/firebase-config.js'
-import "./tarjetDescription.css"
+import "./itemDetailContainer.css"
 
 
 
@@ -85,7 +85,7 @@ const tarjetDescription = () => {
 
   if (loading) {
     return (
-        <div>
+        <div className="spinner">
             <Spinner animation="grow" size="sm" />
             <Spinner animation="grow" />
             <Spinner animation="grow" size="sm" />
