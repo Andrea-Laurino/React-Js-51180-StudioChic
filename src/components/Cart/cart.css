@@ -4,11 +4,34 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-   
+    
 }
 
 .totalPrice{
     display: flex;
     justify-content: center;
     color: #1b263b;
+}
+
+.checkOutForm{
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    padding-bottom: 20px;
+}
+
+.form{
+    border: 1px solid #071e49;
+    border-radius: 5px;
+    background-color: #2b509483;
+    height: auto;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    font-weight: 700;
+    font-size: x-large;
 }

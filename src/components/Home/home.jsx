@@ -10,7 +10,7 @@ import Carousel from 'react-bootstrap/Carousel';
 const Home = () => {
   const { user } = useAuth();
 
-  console.log(user.email)
+ 
       return (
       <>
       <h5 className="welcome">Bienvenido {user.email}!</h5>
