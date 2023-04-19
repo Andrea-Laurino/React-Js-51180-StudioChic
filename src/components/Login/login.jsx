@@ -1,70 +1,105 @@
-import 'firebase/auth';
+//import 'firebase/auth';
 import { useState } from 'react';
 import './login.css'
 import Btn from '../Btn/button'
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import auth from '../../../db/auth-config';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
+import  Alert from '../Alert/alert.jsx';
 
-const Login = (props) => {
- 
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [isSingIn, setIsSingIn] = useState(false);
+export default function Login() {
+   const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const { login, resetPassword } = useAuth();
+  
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleModeChange = () => {
-    setIsSingIn(!isSingIn);
-  }
-
- 
-  const submitHandler = (e) => {
+  const handleSubmit = async  (e) => {
     e.preventDefault();
-    const correo = email
-    const contraseña = password
-    console.log(correo, contraseña)
-    const validar = getAuth();
-    createUserWithEmailAndPassword(auth, correo, contraseña)
-    .then((usuarioFirebase) =>{
-      alert("Bienvenido " + email, usuarioFirebase);
-      props.setUsuario(usuarioFirebase);
-    })
-      .then((userCredential) => {
-      const user = userCredential.user;
-    })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage)
-    
-    });
+    setError("");
+    try {
+      await login(user.email, user.password);
+      navigate("/");
+      toast.success(`👌 Sesion Iniciada! ${user.email}`, {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              });
+    } catch (error) {
+      if (error.code === "auth/user-not-found"){
+        setError("Usuario no Registrado");
+      } else if (error.code === "auth/wrong-password") {
+        setError("Contraseña menor a 6 caracteres");
+      }
+    };
   }
+  const handleChange = ({ target: { value, name } }) =>
+    setUser({ ...user, [name]: value });
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    if (!user.email) return setError("Write an email to reset password");
+    try {
+      await resetPassword(user.email);
+      setError('We sent you an email. Check your inbox')
+    } catch (error) {
+      setError(error.message);
+    }
+  };  
+
+
 
   return (
     <>
-      <div className='resumen'>
+    <div className='resumen'>
+     
         <Form className='container-fluid singIn'
-        onSubmit={submitHandler}>
-          <h3>{ isSingIn ? "Regístrate" : "Iniciar Sesión"} </h3>
+        onSubmit={handleSubmit}>
+             {error && <Alert message={error}  />}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label className='email'>Email </Form.Label>
-            <Form.Control type="email" className='email' placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+            <Form.Label className='email' >Email </Form.Label>
+            <Form.Control className='email' type="email" name="email" placeholder="Email" onChange={handleChange} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label className='contraseña'>Contraseña</Form.Label>
-            <Form.Control className='contraseña' type="password" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)}/>
+            <Form.Control className='contraseña' type="password" name="password"  placeholder="*************" onChange={handleChange}/>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
           </Form.Group>
-          <Btn type="submit" texto={isSingIn ? "Regístrate" : "Iniciar Sesión"} />
-        </Form>
+         
+        
         <div className='handleSingIn'>
-        <Button onClick={handleModeChange} className='btnSingIn'>{isSingIn ? "¿Ya Tienes Cuenta? Iniciar Sesión" : "¿No Tienes Cuenta? Regístrate!"}</Button>
+          <Btn type="submit" texto={"Iniciar Sesión"} />
+          <a className=" mb-3"
+            href="#!"
+            onClick={handleResetPassword}>
+            Olvidaste tu Contraseña?</a>
         </div>
+       </Form>
+       <div className="my-4 px-3">
+       <p className="">
+        Don't have an account?
+        <Link to="/register" className= "ml-4" >
+          Register
+        </Link>
+      </p>
+       </div>
       </div>
+      
     </>
   )
 }
 
-export default Login
+

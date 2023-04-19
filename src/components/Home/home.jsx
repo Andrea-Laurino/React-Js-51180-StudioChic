@@ -1,10 +1,19 @@
+import { useAuth } from "../../contexts/AuthContext";
 import "./home.css"
 import Carousel from 'react-bootstrap/Carousel';
 
 
+
+
+
+
 const Home = () => {
-    return (
+  const { user } = useAuth();
+
+  console.log(user.email)
+      return (
       <>
+      <h5 className="welcome">Bienvenido {user.email}!</h5>
       <section>
           <Carousel>
           <Carousel.Item>
@@ -31,11 +40,7 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
       </section>
-      {/* <section>
-        <div>
-          <img src="../assets/ecommerce.jpg" alt="" />
-        </div>
-      </section> */}
+       
       </>
 
     );

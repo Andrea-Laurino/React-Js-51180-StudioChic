@@ -5,5 +5,10 @@
     height: 700px;
 }
 
+.welcome{
+    display: flex;
+    justify-content: center;
+    color:#415a77;
 
+}
 

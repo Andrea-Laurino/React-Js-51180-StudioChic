@@ -1,0 +1,48 @@
+.resumen{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    height: 100%;
+   
+}
+
+
+.singIn{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    height: 400px;
+    width: 300px;
+    border: 1px solid #0d1b2a;
+}
+.handleSingIn{
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    margin: 10px;
+}
+.btnSingIn{
+    color: rgba(0, 0, 0, 0.692);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.692);;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: #c9ada7;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+.email{    
+    flex: 1 0 130px;
+}
+.contraseña{
+    flex: 1 0 130px;
+}
+
+.form-btn{
+    flex: 1 0 40px;
+}

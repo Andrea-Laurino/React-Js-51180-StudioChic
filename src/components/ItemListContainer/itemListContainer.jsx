@@ -3,13 +3,14 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import ItemList from "../ItemList/itemList.jsx";
 import { NavLink } from "react-router-dom";
 import "./itemListContainer.css";
-
 import { getDocs, collection } from "firebase/firestore";
 import db from '../../../db/firebase-config.js'
+import { useAuth } from "../../contexts/AuthContext.jsx";
 
 
 const ItemListContainer = () => {
-  
+  const AuthContext = useAuth()
+ 
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([])
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('')
@@ -57,11 +58,6 @@ const ItemListContainer = () => {
 
     return (
     <> 
-    {/* <div>  
-      <NavLink to={`/products`} >
-          Todos Los Productos
-      </NavLink>
-    </div> */}
     <div className="categorias-btn">
     <div><h3>Nuestras Categorias: </h3></div>
     <div>

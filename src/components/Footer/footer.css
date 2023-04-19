@@ -10,9 +10,10 @@
 }
 
 .footer-img{
-    margin-bottom: 20px;
-    width: 180px;
-    height: 100px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    width: 100px;
+    height: 60px;
     border-radius: 30px;    
     will-change: filter;
     transition: filter 300ms;

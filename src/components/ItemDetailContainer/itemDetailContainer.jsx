@@ -1,12 +1,12 @@
 import { Card, Spinner } from "react-bootstrap"
 import { useEffect, useState } from "react";
 import { Link, Navigate, NavLink, useParams } from "react-router-dom";
-import { useCartContext } from '../../contexts/CartContext.jsx';
 import Btn from '../Btn/button.jsx'
 import ItemCount from "../ItemCount/itemCount.jsx";
 import { doc, getDoc } from "firebase/firestore";
 import db from '../../../db/firebase-config.js'
 import "./itemDetailContainer.css"
+import { useCartContext } from "../../contexts/CartContext.jsx";
 
 
 

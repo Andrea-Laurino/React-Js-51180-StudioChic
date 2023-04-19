@@ -34,8 +34,9 @@ const Cart = () => {
 
   const handleClick = () => {
     const ordersCollection = collection(db, 'orders')
-    addDoc(ordersCollection, order)
-    .then(({id}) => confirm("Tu numero de orden es: " + id))
+     addDoc(ordersCollection, order)
+     .then(({id}) => confirm("Tu numero de orden es: " + {id}))
+     console.log(order)
   }
 
   if (cart.length === 0){
@@ -59,7 +60,9 @@ const Cart = () => {
     <h3 className="totalPrice">
         TOTAL= $ {totalPrice()}
     </h3>
-      <Btn texto="Generar Orden de Compra" onClick={handleClick}/>
+      <button onClick={handleClick}>
+          Generar Orden de Compra
+      </button>
     </> 
   )
 }
