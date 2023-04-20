@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 import "./itemListContainer.css";
 import { getDocs, collection } from "firebase/firestore";
 import db from '../../../db/firebase-config.js'
-import { useAuth } from "../../contexts/AuthContext.jsx";
+
 
 
 const ItemListContainer = () => {
-  const AuthContext = useAuth()
+ 
  
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([])

@@ -16,9 +16,11 @@ const CartProvider = ({ children }) => {
     
     
     const addProduct = (item, quantity) => {
-      let updatedCart = null;
+      let updatedCart = [];
       if (item && item.id && isInCart(item.id)) {
+        console.log(item)
         updatedCart = cart.map((product) =>
+        
         product.id === item.id
             ? { ...product, quantity: product.quantity + quantity }
             : product
@@ -26,6 +28,7 @@ const CartProvider = ({ children }) => {
       } else {
         updatedCart = [...cart, { ...item, quantity }];
       }
+      console.log(updatedCart)
       setCart(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
     
@@ -42,6 +45,7 @@ const CartProvider = ({ children }) => {
   };
 
   const isInCart = (id) => cart.find((product) => product.id === id) !== undefined;
+
 
   const removeProduct = (id) => {
     const updatedCart = cart.filter((product) => product.id !== id);
@@ -64,10 +68,10 @@ const CartProvider = ({ children }) => {
     addDoc(collectionRef,order)
     .then((res)=>{
       const newOrderId = res.id;
+      const orderDate =new Date().toLocaleDateString();
       setOrderId(newOrderId);
-      console.log(newOrderId);
       setCart([]);
-      toast(`🗸 Muchas Gracias Tu Compra! Tu Numero de Orden es: ${newOrderId}`, {
+      toast(`🗸 Muchas Gracias Tu Compra! La Realizaste: ${orderDate} y Tu Numero de Orden es: ${newOrderId}`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

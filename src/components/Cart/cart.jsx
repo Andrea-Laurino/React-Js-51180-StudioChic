@@ -1,10 +1,10 @@
-import { Link, NavLink} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../contexts/CartContext"
 import ItemCart from "../ItemCart/itemCart"; 
 import './cart.css'
 import Btn from '../Btn/button.jsx'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -15,7 +15,7 @@ const Cart = () => {
   const [email, setEmail] = useState("");
  
   console.log(orderId)
-
+  console.log(cart)
   const [formData, setFormData] = useState({
     name: "",
     address: "",

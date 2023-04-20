@@ -44,11 +44,13 @@ const itemDetailContainer = () => {
       // El producto no se encuentra en el carrito, lo agregamos
       const newItem = {...product, quantity};
       setCart([...cart, newItem]);
+      console.log(newItem)
     } else {
       // El producto ya está en el carrito, actualizamos la cantidad
       const newCart = [...cart];
       newCart[itemIndex].quantity += quantity;
       setCart(newCart);
+      console.log(newCart)
     }
   };
 
@@ -56,6 +58,7 @@ const itemDetailContainer = () => {
     const cartData = downloadToLocal('cart');
     if (cartData) {
       setCart(cartData);
+      console.log(cartData)
     }
   }, []);
 
