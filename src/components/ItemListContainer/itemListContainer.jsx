@@ -18,7 +18,7 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
 
   const itemRef = collection(db, "products")
-
+  
   const getItems = async () => {
     const productsCollection= await getDocs(itemRef)
     const items = productsCollection.docs.map((doc) => ({

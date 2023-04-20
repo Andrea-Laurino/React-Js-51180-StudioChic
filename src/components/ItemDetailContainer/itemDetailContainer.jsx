@@ -10,7 +10,7 @@ import { useCartContext } from "../../contexts/CartContext.jsx";
 
 
 
-const tarjetDescription = () => {
+const itemDetailContainer = () => {
   const [productos, setProductos] = useState({});
   const [loading, setLoading] = useState(true);
   const { addProduct } = useCartContext()
@@ -18,7 +18,7 @@ const tarjetDescription = () => {
   const { id } = useParams();
   const queryDoc = doc(db, "products", id);
   const [cart, setCart] = useState([]);
-
+  const [cartUpdated, setCartUpdated] = useState(false);
 
   const uploadToLocal = (key, value) => {
     try {
@@ -61,7 +61,11 @@ const tarjetDescription = () => {
 
   useEffect(() => {
     uploadToLocal('cart', cart);
-  }, [cart]);
+  }, [cart, cartUpdated]);
+
+  const handleCartUpdate = () => {
+    setCartUpdated(!cartUpdated);
+  };
 
   const getProductId = async () => {
     try {  
@@ -98,6 +102,7 @@ const tarjetDescription = () => {
   const onAdd = (quantity) => {
     setGoToCart(true);
     addToCart(productos, quantity);
+    
   }
   return (
     <>
@@ -117,8 +122,12 @@ const tarjetDescription = () => {
        <div className="contador">
           {
             goToCart 
-            ? <Link to='/cart'> <Btn texto="Terminar Compra"/></Link>
-            :<ItemCount initial ={1} stock={5} onAdd={onAdd} />
+            ? 
+            <Link to='/cart' onClick={handleCartUpdate}> 
+                <Btn texto="Terminar Compra"/>
+            </Link>
+            :
+            <ItemCount initial ={1} stock={5} onAdd={onAdd} />
           }
       </div>
     </div>
@@ -127,4 +136,4 @@ const tarjetDescription = () => {
   )
 }
 
-export default tarjetDescription
+export default itemDetailContainer

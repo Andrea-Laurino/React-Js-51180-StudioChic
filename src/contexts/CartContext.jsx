@@ -1,37 +1,37 @@
 import React, { useState, useContext, useEffect } from "react";
+import db from '../../db/firebase-config'
+import { addDoc, collection } from "firebase/firestore";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
-const CartContext = React.createContext({});
+const CartContext = React.createContext({orderId: ''});
+
+
 
 export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-  
-    useEffect(() => {
-      const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart"));
-      if (cartFromLocalStorage) {
-        setCart(cartFromLocalStorage);
-      }
-    }, []);
-  
+    const [orderId, setOrderId] = useState('');
+    
+    
     const addProduct = (item, quantity) => {
       let updatedCart = null;
       if (item && item.id && isInCart(item.id)) {
         updatedCart = cart.map((product) =>
-          product.id === item.id
+        product.id === item.id
             ? { ...product, quantity: product.quantity + quantity }
             : product
         );
       } else {
         updatedCart = [...cart, { ...item, quantity }];
       }
-    
       setCart(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
+    
     };
 
-  const totalPrice = () =>
-    cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
+  const totalPrice =  cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
 
   const totalProducts = () =>
     cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0);
@@ -48,8 +48,45 @@ const CartProvider = ({ children }) => {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
-
   
+  
+  
+  function sendOrder(buyer) {
+    
+    const order = {
+      buyer,
+        items:cart,
+        total:totalPrice,
+    }
+
+    const collectionRef = collection (db,'orders')
+
+    addDoc(collectionRef,order)
+    .then((res)=>{
+      const newOrderId = res.id;
+      setOrderId(newOrderId);
+      console.log(newOrderId);
+      setCart([]);
+      toast(`🗸 Muchas Gracias Tu Compra! Tu Numero de Orden es: ${newOrderId}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    })
+    .catch((error) => console.log({error}))
+  }
+  useEffect(() => {
+  const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart"));
+    if (cartFromLocalStorage) {
+      setCart(cartFromLocalStorage);
+    }
+  }, []);
+
 
   return (
     <CartContext.Provider
@@ -61,7 +98,9 @@ const CartProvider = ({ children }) => {
         totalPrice,
         totalProducts,
         cart,
-        setCart        
+        setCart,
+        sendOrder,
+        orderId
       }}
     >
       {children}

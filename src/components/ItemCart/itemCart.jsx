@@ -8,7 +8,7 @@ const itemCart = ({ producto }) => {
     const { removeProduct } = useCartContext();
     
   return (
-
+    
       <Card className='itemCart'>
         <Card.Img className='itemCart-img' src={producto.image} alt={producto.nombre}/>
           <Card.Body>
