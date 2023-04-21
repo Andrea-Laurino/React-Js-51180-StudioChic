@@ -16,13 +16,12 @@
   </p>
 </div>
 
-[StudioChic.webm](https://user-images.githubusercontent.com/110556252/233742332-f2ee52de-dae9-49ac-bcd8-084c07802d73.webm)
 
 
 
 ## Acerca del proyecto
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[StudioChic.webm](https://user-images.githubusercontent.com/110556252/233742332-f2ee52de-dae9-49ac-bcd8-084c07802d73.webm)
 
 StudioChic es una plataforma en línea creada con tecnologías modernas como React, Vite y Firebase, que tiene como finalidad administrar proyectos de manera eficiente. Para utilizar esta herramienta, es necesario acceder a través de un proceso de autenticación, de esta forma se otorgan permisos para añadir, eliminar, aumentar o disminuir cantidades de productos en el carrito de compras, así como ver información detallada de cada uno y finalmente realizar la compra, obteniendo un número de orden y fecha de adquisición.
 
