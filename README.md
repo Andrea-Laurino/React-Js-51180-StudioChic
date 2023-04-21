@@ -76,9 +76,8 @@ A continuación, se presenta una lista de las dependencias utilizadas en StudioC
 ## Uso
 
 Una vez que hayas instalado las dependencias, puedes ejecutar el proyecto con el siguiente comando:
-    
-```sh
-- npm run dev
+        ```sh
+   - npm run dev
 
 Este comando inicia el servidor local en http://localhost:5173, donde puedes acceder a la aplicación en tu navegador.
 
