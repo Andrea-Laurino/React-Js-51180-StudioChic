@@ -59,7 +59,7 @@ function App() {
                 <ProctectedRoute>
                   <ItemDetailContainer productos={productos} />
                 </ProctectedRoute>} />
-          <Route path="/products/category/eau de parfum" element={
+          <Route path="/products/category/Beauty" element={
                 <ProctectedRoute>
                   <ItemListContainer productos={productos}/>
                 </ProctectedRoute>} />
@@ -79,7 +79,7 @@ function App() {
                 <ProctectedRoute>
                   <ItemDetailContainer productos={productos} />
                 </ProctectedRoute>} />
-          <Route path="/products/category/eau de parfum/:id" element={
+          <Route path="/products/category/Beauty/:id" element={
                 <ProctectedRoute>
                   <ItemDetailContainer productos={productos} />
                 </ProctectedRoute>} />
