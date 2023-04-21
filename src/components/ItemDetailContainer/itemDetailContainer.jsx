@@ -17,54 +17,8 @@ const itemDetailContainer = () => {
   const [goToCart, setGoToCart] = useState(false)
   const { id } = useParams();
   const queryDoc = doc(db, "products", id);
-  const [cart, setCart] = useState([]);
   const [cartUpdated, setCartUpdated] = useState(false);
 
-  const uploadToLocal = (key, value) => {
-    try {
-      localStorage.setItem(key, JSON.stringify(value))
-    } catch (error) {
-      console.error('Error saving to local storage:', error);
-    }
-  }
-
-  const downloadToLocal = (key) => {
-    try {
-      const value = localStorage.getItem(key);
-      return JSON.parse(value);
-    } catch (error) {
-      console.error('Error retrieving from local storage:', error);
-      return null;
-    }
-  }
-
-  const addToCart = (product, quantity) => {
-    const itemIndex = cart.findIndex(item => item.id === product.id);
-    if (itemIndex === -1) {
-      // El producto no se encuentra en el carrito, lo agregamos
-      const newItem = {...product, quantity};
-      setCart([...cart, newItem]);
-      console.log(newItem)
-    } else {
-      // El producto ya está en el carrito, actualizamos la cantidad
-      const newCart = [...cart];
-      newCart[itemIndex].quantity += quantity;
-      setCart(newCart);
-      console.log(newCart)
-    }
-  };
-
-  useEffect(() => {
-    const cartData = downloadToLocal('cart');
-    if (cartData) {
-      setCart(cartData);
-      console.log(cartData)
-    }
-  }, []);
-
-  useEffect(() => {
-    uploadToLocal('cart', cart);
-  }, [cart, cartUpdated]);
 
   const handleCartUpdate = () => {
     setCartUpdated(!cartUpdated);
@@ -83,7 +37,7 @@ const itemDetailContainer = () => {
   
    useEffect(() => {
     getProductId();
-    addProduct();
+  
   }, []);
 
   if (!productos) {
@@ -104,7 +58,7 @@ const itemDetailContainer = () => {
 
   const onAdd = (quantity) => {
     setGoToCart(true);
-    addToCart(productos, quantity);
+    addProduct(productos, quantity);
     
   }
   return (

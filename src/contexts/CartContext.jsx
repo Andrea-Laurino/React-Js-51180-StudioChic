@@ -7,31 +7,25 @@ import { toast } from 'react-toastify';
 const CartContext = React.createContext({orderId: ''});
 
 
-
 export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+  
+  const [cart, setCart] = useState(() => {
+    const cartStorage = localStorage.getItem('cart');
+    return cartStorage ? JSON.parse(cartStorage) : [];
+});
     const [orderId, setOrderId] = useState('');
     
     
     const addProduct = (item, quantity) => {
-      let updatedCart = [];
-      if (item && item.id && isInCart(item.id)) {
-        console.log(item)
-        updatedCart = cart.map((product) =>
-        
-        product.id === item.id
-            ? { ...product, quantity: product.quantity + quantity }
-            : product
-        );
-      } else {
-        updatedCart = [...cart, { ...item, quantity }];
-      }
-      console.log(updatedCart)
-      setCart(updatedCart);
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-    
+      if (isInCart(item.id)){
+          setCart(cart.map(producto => {
+              return producto.id === item.id ? { ...producto, quantity: producto.quantity + quantity } : producto
+          }));
+      }else {
+          setCart([...cart, {...item, quantity }]);
+      }  
     };
 
   const totalPrice =  cart.reduce((prev, act) => prev + act.quantity * act.price, 0);
@@ -41,7 +35,6 @@ const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]);
-    localStorage.removeItem("cart");
   };
 
   const isInCart = (id) => cart.find((product) => product.id === id) !== undefined;
@@ -50,10 +43,12 @@ const CartProvider = ({ children }) => {
   const removeProduct = (id) => {
     const updatedCart = cart.filter((product) => product.id !== id);
     setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+   
   };
   
-  
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}, [cart]);
   
   function sendOrder(buyer) {
     
@@ -84,12 +79,8 @@ const CartProvider = ({ children }) => {
     })
     .catch((error) => console.log({error}))
   }
-  useEffect(() => {
-  const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart"));
-    if (cartFromLocalStorage) {
-      setCart(cartFromLocalStorage);
-    }
-  }, []);
+
+  
 
 
   return (
