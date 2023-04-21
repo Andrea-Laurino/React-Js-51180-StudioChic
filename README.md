@@ -26,7 +26,6 @@
 
 StudioChic es una plataforma en línea creada con tecnologías modernas como React, Vite y Firebase, que tiene como finalidad administrar proyectos de manera eficiente. Para utilizar esta herramienta, es necesario acceder a través de un proceso de autenticación, de esta forma se otorgan permisos para añadir, eliminar, aumentar o disminuir cantidades de productos en el carrito de compras, así como ver información detallada de cada uno y finalmente realizar la compra, obteniendo un número de orden y fecha de adquisición.
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 
 
@@ -64,11 +63,15 @@ A continuación, se presenta una lista de las dependencias utilizadas en StudioC
 - bootstrap: Estilos en gral.
 - react-bootstrap: Framework reconstruido para React. 
 
+
 ## Dependencias de desarrollo
 
 - @types/react: Tipos TypeScript para React.
 - @types/react-dom: Tipos TypeScript para ReactDOM.
 - @vitejs/plugin-react: Plugin para Vite que permite el uso de React en proyectos sin configuración previa.
+
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+
 
 ## Uso
 
@@ -78,3 +81,17 @@ Una vez que hayas instalado las dependencias, puedes ejecutar el proyecto con el
 - npm run dev
 
 Este comando inicia el servidor local en http://localhost:5173, donde puedes acceder a la aplicación en tu navegador.
+
+
+
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[React-url]: https://reactjs.org/
+[Bootstrap-url]: https://getbootstrap.com
