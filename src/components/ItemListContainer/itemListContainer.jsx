@@ -48,11 +48,13 @@ const ItemListContainer = () => {
       
   if (loading) {
     return (
+      <section className="sectionSpinner">
         <div className="spinner">
             <Spinner animation="grow" size="sm" />
             <Spinner animation="grow" />
             <Spinner animation="grow" size="sm" />
         </div>
+      </section>
     )
   }
 

@@ -1,12 +1,16 @@
 .tarjeta{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
+.cardProductDetail{
+    width: 450px;
+    margin: 10px;
+}
 .product{
-    width: 500px;
+    margin: 10px;
 }
-
 .contador{
     margin: 20px;
     padding:20px;
@@ -16,4 +20,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.cardImgDetail{
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }

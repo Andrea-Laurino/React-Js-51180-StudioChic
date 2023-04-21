@@ -67,15 +67,17 @@ const itemDetailContainer = () => {
         <Btn texto="Todos Los Productos"/>
     </NavLink>
     <div className="tarjeta">
-      <Card className="product">
-        <Card.Img src={productos.image} />
-        <Card.Body>
-            <Card.Title>{productos.title}</Card.Title>
-            <Card.Text> {productos.description}</Card.Text>
-            <Card.Text> {productos.category}</Card.Text>
-            <Card.Text> $ {productos.price}</Card.Text>
-         </Card.Body>
-      </Card>
+          <Card className="cardProductDetail">
+        <div className="product"> 
+            <Card.Img className="cardImgDetail" src={productos.image} />
+        </div>
+            <Card.Body>
+                <Card.Title>{productos.title}</Card.Title>
+                <Card.Text> {productos.description}</Card.Text>
+                <Card.Text> {productos.category}</Card.Text>
+                <Card.Text> $ {productos.price}</Card.Text>
+            </Card.Body>
+          </Card>
        <div className="contador">
           {
             goToCart 
@@ -84,7 +86,8 @@ const itemDetailContainer = () => {
                 <Btn texto="Terminar Compra"/>
             </Link>
             :
-            <ItemCount initial ={1} stock={5} onAdd={onAdd} />
+              <ItemCount initial ={1} stock={5} onAdd={onAdd} />
+           
           }
       </div>
     </div>

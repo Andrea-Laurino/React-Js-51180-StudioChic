@@ -1,25 +1,32 @@
 
 .card-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  
-  } 
-  .row{
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+} 
+.row{
+  flex-direction: row;
+  justify-content: space-around;
+}
+.productoCard{
+    text-align: center;
     margin: 40px;
     box-shadow: 0 0 30px #0406478f;
     width: 350px;
   
   }
-  
+  .productoImg{
+    margin-top: 20px;
+    height: 300px;
+    width: auto;
+  }
   .cardImg{
+    max-width: 50%;
     height: auto;
-    width: 150px ;
+    display: block;
+    margin: 0 auto;
   
   }
   .card-body{

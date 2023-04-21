@@ -18,7 +18,7 @@ h3{
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
-    background-color: #c9ada7;
+    background-color: #996e66;
     cursor: pointer;
     transition: border-color 0.25s;
 }
@@ -27,4 +27,9 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 500px;
+
+}
+.sectionSpinner{
+    height: 900px;
 }

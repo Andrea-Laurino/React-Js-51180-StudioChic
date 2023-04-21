@@ -6,7 +6,7 @@
 
 .body {
   box-sizing: border-box;
-  background-color: rgb(242, 233, 228);
+  background-color: rgba(242, 233, 228, 0.808);
   margin: 0;
   padding: 0;
 }

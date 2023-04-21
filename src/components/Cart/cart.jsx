@@ -11,18 +11,17 @@ import Row from 'react-bootstrap/Row';
 
 
 const Cart = () => {
-  const { cart, totalPrice, orderId, sendOrder } = useCartContext();
+  const { cart, totalPrice, sendOrder } = useCartContext();
   const [email, setEmail] = useState("");
- 
-  console.log(orderId)
-  console.log(cart)
+
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
     phone: "",
     email: "",
   });
-  console.log(formData)
+  
 
   
   const handleSubmit = (event) => {

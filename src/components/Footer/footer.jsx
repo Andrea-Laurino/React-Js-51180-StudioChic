@@ -11,9 +11,8 @@ return(
   <footer className="footer-bg">
       <div className="container-fluid">
           <div className=" row p-3 ">
-  
               <div className="col-xs-12 col-m-6 col-lg-3">
-              <NavLink to="/home"><img className="footer-img " src="src/assets/logoFOOTERStudioChic.png" alt="StudioChic"/></NavLink>
+              <NavLink to="/home"><img className="footer-img " src="src/assets/logoStudioChic.png" alt="StudioChic"/></NavLink>
                   <h5 className="text-lg mt-0 mb-2 text-center mt-3">
                      Redes Sociales
                   </h5>
@@ -30,27 +29,23 @@ return(
                      Contactanos
                   </h5>
                   <ul className="contact-info p-0 ml-0 mt-0 text-left list-unstyled">
+                      <li className="contact-item list-unstyled"><strong>Sede Central y Showroom </strong></li>
                       <li className="contact-item list-unstyled"><a href="https://web.whatsapp.com/" className="list-unstyled link">54 9 11 8765-4321</a></li>
                       <li className="contact-item list-unstyled link"> 1234-5678</li>
                       <li className="contact-item list-unstyled"><a href="https://accounts.google.com/v3/signin/identifier?dsh=S-1442551895%3A1681332054115927&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=AQMjQ7QAMJvjn47kIwIXrdp4kcvtzESiqiP36UiEHSqrTM4XM2I4ypiDKhWT1o_gvgc4BmjvGwzI&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin"  className="list-unstyled link">info@studiochic.com</a></li>
-                      <li className="contact-item list-unstyled"> Showroom Ubicado Scalabrini Ortiz 1234 Palermo - CABA</li>
+                      <li className="contact-item list-unstyled"> Scalabrini Ortiz 1234 Palermo - CABA</li>
                 </ul>
               </div>
              
               <div className="col-xs-12 col-m-6 col-lg-3">
                       <div className="w-full lg:w-4/12 px-4">
-                          <h6 className="block uppercase text-sm font-semibold mt-4">Otros Recursos</h6>
-                          <ul className="list-unstyled">
-                              <li>
-                                  <a className="link" >Terminos &amp; Condiciones</a>
-                              </li>
-                              <li>
-                                  <a className="link" >Politicas de Privacidad</a>
-                              </li>
-                              <li>
-                                  <a className="link" >Contactanos</a>
-                              </li>
-                          </ul>
+                          <h5 className="block uppercase text-sm font-semibold mt-4"><strong>Otros Locales</strong></h5>
+                            <ul className="contact-info p-0 ml-0 mt-0 text-left list-unstyled">
+                                <li className="contact-item list-unstyled"> Av. Santa Fe 1652, Local 23, Patio Bullrich, CABA, Argentina</li>
+                                <li className="contact-item list-unstyled"> Av. Cabildo 1873, Local 220, DOT Baires Shopping, CABA, Argentina</li>
+                                <li className="contact-item list-unstyled">Córdoba 854, Paseo del Siglo, Rosario, Argentina</li>
+                                <li className="contact-item list-unstyled"> Mitre 348, Local 10, Galería del Sol, Bariloche, Argentina</li>
+                            </ul>
                       </div>
               </div>
           </div>
