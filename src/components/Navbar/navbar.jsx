@@ -46,7 +46,7 @@ function Navbar() {
                         to="/home">
                             <img 
                                 className="img-logo" 
-                                src="src/assets/logoStudioChic.png" 
+                                src="/assets/logoStudioChic.png" 
                                 alt="StudioChic"/>
                     </NavLink>
                 </div>

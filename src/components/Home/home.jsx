@@ -17,7 +17,7 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="img-carousel"
-              src="src/assets/imagen1.jpg"
+              src="/assets/imagen1.jpg"
               alt="Store1"
             />
             <Carousel.Caption>
@@ -28,7 +28,7 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="img-carousel"
-              src="src/assets/imagen2.jpg"
+              src="/assets/imagen2.jpg"
               alt="Store2"
             />
             <Carousel.Caption>
@@ -44,7 +44,9 @@ const Home = () => {
           <Row className="my-4 justify-content-md-evenly">
               <Col md={4} xs lg="2">
                 <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src="src/assets/ecommerce.jpg" alt="Mujer de compras"/>
+                  <Card.Img variant="top" 
+                  src="/assets/ecommerce.jpg" 
+                  alt="Mujer de compras"/>
                 </Card>
               </Col>
               <Col className="" md={{ span: 4, offset: 2 }}>
@@ -61,14 +63,14 @@ const Home = () => {
               </Col>
               <Col md={4} xs lg="2">
                 <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src="src/assets/perfumes.jpg" alt="productos de higiene y perfumeria"/>
+                  <Card.Img variant="top" src="/assets/perfumes.jpg" alt="productos de higiene y perfumeria"/>
                 </Card>
               </Col>
             </Row>
             <Row className="my-4 justify-content-md-evenly">
               <Col md={4} xs lg="2">
                 <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src="src/assets/compras.jpg" alt="compras virtuales"/>
+                  <Card.Img variant="top" src="/assets/compras.jpg" alt="compras virtuales"/>
                 </Card>
               </Col>
               <Col className="" md={{ span: 4, offset: 2 }}>

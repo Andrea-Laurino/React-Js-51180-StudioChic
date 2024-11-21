@@ -96,7 +96,7 @@ function App() {
                   <Cart />
               </ProctectedRoute>} />
           <Route path="/register" element={<Register />} />
-          <Route path="/404" element={<img className="img-error" src="src/assets/404.error.jpg" />} />
+          <Route path="/404" element={<img className="img-error" src="/assets/404.error.jpg" />} />
         </Routes> 
     </CartProvider>        
     <Footer/>
