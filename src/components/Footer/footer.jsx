@@ -43,10 +43,10 @@ return(
                       <div className="w-full lg:w-4/12 px-4">
                           <h5 className="block uppercase text-sm font-semibold mt-4"><strong>Otros Locales</strong></h5>
                             <ul className="contact-info p-0 ml-0 mt-0 text-left list-unstyled">
-                                <li className="contact-item list-unstyled"> Av. Santa Fe 1652, Local 23, Patio Bullrich, CABA, Argentina</li>
-                                <li className="contact-item list-unstyled"> Av. Cabildo 1873, Local 220, DOT Baires Shopping, CABA, Argentina</li>
-                                <li className="contact-item list-unstyled">Córdoba 854, Paseo del Siglo, Rosario, Argentina</li>
-                                <li className="contact-item list-unstyled"> Mitre 348, Local 10, Galería del Sol, Bariloche, Argentina</li>
+                                <li className="contact-item list-unstyled"> - Av. Santa Fe 1652, Local 23, Patio Bullrich, CABA, Argentina</li>
+                                <li className="contact-item list-unstyled"> - Av. Cabildo 1873, Local 220, DOT Baires Shopping, CABA, Argentina</li>
+                                <li className="contact-item list-unstyled"> - Córdoba 854, Paseo del Siglo, Rosario, Argentina</li>
+                                <li className="contact-item list-unstyled"> - Mitre 348, Local 10, Galería del Sol, Bariloche, Argentina</li>
                             </ul>
                       </div>
               </div>
