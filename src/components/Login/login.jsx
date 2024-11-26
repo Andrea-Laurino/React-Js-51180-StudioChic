@@ -40,7 +40,7 @@ export default function Login() {
       if (error.code === "auth/user-not-found"){
         setError("Usuario no Registrado");
       } else if (error.code === "auth/wrong-password") {
-        setError("Contraseña menor a 6 caracteres");
+        setError("Contraseña Incorrecta");
       }
     };
   }
